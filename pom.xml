@@ -1,6 +1,5 @@
 
 
-
 <!--changes done to pom.xml file-->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -39,10 +38,11 @@
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
+          <source>1.6</source>
+          <target>1.6</target>
         </configuration>
       </plugin>
+             
 
       <plugin>
         <artifactId>maven-release-plugin</artifactId>
@@ -51,19 +51,42 @@
         </configuration>
       </plugin>
 
-     <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-war-plugin -->
-<dependency>
-<groupId>org.apache.maven.plugins</groupId>
-<artifactId>maven-war-plugin</artifactId>
-<version>3.3.2</version>
-</dependency>
+      <plugin>
+        <artifactId>maven-site-plugin</artifactId>
+        <configuration>
+          <reportPlugins>
+            <plugin>
+              <artifactId>maven-checkstyle-plugin</artifactId>
+            </plugin>
 
-<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-dependency-plugin -->
-<dependency>
-<groupId>org.apache.maven.plugins</groupId>
-<artifactId>maven-dependency-plugin</artifactId>
-<version>3.3.0</version>
-</dependency>
+            <plugin>
+              <artifactId>maven-jxr-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+              <artifactId>maven-javadoc-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+              <artifactId>maven-pmd-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+              <artifactId>maven-surefire-report-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>findbugs-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>taglist-maven-plugin</artifactId>
+            </plugin>
+          </reportPlugins>
+        </configuration>
+      </plugin>
     </plugins>
 
     <pluginManagement>
@@ -186,6 +209,19 @@
         <scope>test</scope>
       </dependency>
     </dependencies>
+           <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-war-plugin -->
+<dependency>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-war-plugin</artifactId>
+<version>3.3.2</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-dependency-plugin -->
+<dependency>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-dependency-plugin</artifactId>
+<version>3.3.0</version>
+</dependency>
   </dependencyManagement>
 
   <scm>
